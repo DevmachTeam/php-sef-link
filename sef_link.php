@@ -1,5 +1,5 @@
 <?php
-  //sef_link.php 
+  //sef_link.php
   function devmach_sef_link($words)
   {
         $turkish_character=array("ş", "Ş", "ı", "ü", "Ü", "ö", "Ö", "ç", "Ç", "ğ", "Ğ", "İ");
@@ -12,18 +12,18 @@
         $result = preg_replace('~[^ a-z0-9_.]~', ' ', $words);
         $result = preg_replace('~ ~', '-', $words);
         $result = preg_replace('~-+~', '-', $words);
-    
+
         return $result;
   }
 
 ?>
 
-<?php 
-  //index.php 
- 
+<?php
+  //index.php
+
   include 'sef_link.php';
-  $string="Php ile Sef Link Url Yapımı";  //POST and GET values 
-  $sef=devmach_sef_link($string);  
-  echo $sef;  
-  
+  $string="Php ile Sef Link Url Yapımı";
+  $sef=devmach_sef_link($string);
+  echo $sef;
+  //finish
 ?>
