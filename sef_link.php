@@ -1,10 +1,14 @@
 <?php
   //sef_link.php
+  class sef_link_class{
+
+    private $t_c=array("ş", "Ş", "ı", "ü", "Ü", "ö", "Ö", "ç", "Ç", "ğ", "Ğ", "İ");
+    private $s_c=array("s", "s", "i", "u", "u", "o", "o", "c", "c", "g", "g", "i");
+    private $words="";
   function devmach_sef_link($words)
   {
-        $turkish_character=array("ş", "Ş", "ı", "ü", "Ü", "ö", "Ö", "ç", "Ç", "ğ", "Ğ", "İ");
-        $sef_character=array("s", "s", "i", "u", "u", "o", "o", "c", "c", "g", "g", "i");
-        $result = str_replace($turkish_character, $sef_character, $words);
+
+        $result = str_replace($this->t_c, $this->s_c,$words);
         $result = trim($words);
         $result = html_entity_decode($words);
         $result = strip_tags($words);
@@ -16,14 +20,16 @@
         return $result;
   }
 
-?>
+}
 
-<?php
-  //index.php
 
-  include 'sef_link.php';
-  $string="Php ile Sef Link Url Yapımı";
-  $sef=devmach_sef_link($string);
+
+
+
+  $sef_class=new sef_link_class;
+  $string="dsadçööğğşşüü";
+  $sef=$sef_class->devmach_sef_link($string);
   echo $sef;
-  //finish
+
 ?>
+ 
